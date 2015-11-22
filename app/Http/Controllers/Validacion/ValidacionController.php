@@ -4,6 +4,8 @@ use GestorImagenes\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+use GestorImagenes\Http\Requests\IniciarSesionRequest;
 
 class ValidacionController extends Controller {
 
@@ -44,7 +46,7 @@ class ValidacionController extends Controller {
 		$this->auth = $auth;
 		$this->registrar = $registrar;
 
-		$this->middleware('guest', ['except' => 'getLogout']);
+		$this->middleware('guest', ['except' => 'getSalida']);
 	}
 
 
@@ -96,11 +98,9 @@ class ValidacionController extends Controller {
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function postInicio(Request $request)
+	public function postInicio(IniciarSesionRequest $request)
 	{
-		$this->validate($request, [
-			'email' => 'required|email', 'password' => 'required',
-		]);
+		
 
 		$credentials = $request->only('email', 'password');
 
