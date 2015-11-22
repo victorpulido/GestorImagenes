@@ -25,7 +25,7 @@ class FotosSeeder extends Seeder {
 			{
 				Foto::create(
 					[
-						'nombre' => "album$i",
+						'nombre' => "foto$i",
 						'descripcion' => "descripcion$i",
 						'ruta' => "/img/test$i.jpg",
 						'album_id' => $album->id
