@@ -1,6 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php namespace GestorImagenes\Http\Controllers;
 
-class HomeController extends Controller {
+class InicioController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,9 +28,9 @@ class HomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function getIndex()
 	{
-		return view('home');
+		return view('inicio');
 	}
 
 }
