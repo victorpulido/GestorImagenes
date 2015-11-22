@@ -18,6 +18,20 @@
 						</div>
 					@endif
 
+					@if (Session::has('csrf'))
+						<div class="alert alert-danger">
+							<strong>Whoops!</strong> Al parecer algo está mal.<br><br>
+							{{Session::get('csrf')}}
+						</div>
+					@endif
+
+					@if (Session::has('recuperada'))
+						<div class="alert alert-success">
+							<strong>Ok!</strong> La contraseña se cambió.<br><br>
+							{{Session::get('recuperada')}}
+						</div>
+					@endif
+
 					<form class="form-horizontal" role="form" method="POST" action="/validacion/inicio">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
