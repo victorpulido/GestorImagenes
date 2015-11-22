@@ -1,4 +1,4 @@
-<?php namespace App\Http\Middleware;
+<?php namespace GestorImagenes\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
@@ -35,7 +35,7 @@ class RedirectIfAuthenticated {
 	{
 		if ($this->auth->check())
 		{
-			return new RedirectResponse(url('/home'));
+			return new RedirectResponse(url('/validado'));
 		}
 
 		return $next($request);
