@@ -1,6 +1,9 @@
 @extends('app')
 
 @section('content')
+
+
+
 <div class="container-fluid">
 <p><a href="/validado/fotos/crear-foto?id=" class="btn btn-primary" role="button">Crear Foto</a></p>
 
