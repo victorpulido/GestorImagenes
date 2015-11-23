@@ -5,7 +5,8 @@
 
 
 <div class="container-fluid">
-<p><a href="/validado/fotos/crear-foto?id=" class="btn btn-primary" role="button">Crear Foto</a></p>
+<h3>{{ $nombre_album }}</h3>	
+<p><a href="/validado/fotos/crear-foto?id={{$id}}" class="btn btn-primary" role="button">Crear Foto</a></p>
 
 @if(sizeof($fotos)>0)
 	@foreach($fotos as $index => $foto)
