@@ -8,6 +8,12 @@
 	</div>
 @endif	
 
+@if (Session::has('actualizado'))
+	<div class="alert alert-success">
+		<strong>Ok!</strong> El album ha actualizado.<br><br>
+	</div>
+@endif
+
 <div class="container-fluid">
 <p><a href="/validado/albumes/crear-album" class="btn btn-primary" role="button">Crear Álbum</a></p>
 @if(sizeof($albumes)>0)
