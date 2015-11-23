@@ -2,6 +2,12 @@
 
 @section('content')
 
+@if(Session::has('editada'))
+	<div class="alert alert-success">
+			<strong>Ok!</strong> Modificada.<br><br>
+			{{Session::get('editada')}}
+	</div>
+@endif
 
 
 <div class="container-fluid">
