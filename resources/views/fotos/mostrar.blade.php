@@ -9,6 +9,12 @@
 	</div>
 @endif
 
+@if(Session::has('eliminado'))
+	<div class="alert alert-danger">
+			<strong>Ok!</strong> Modificada.<br><br>
+			{{Session::get('eliminado')}}
+	</div>
+@endif
 
 <div class="container-fluid">
 <h3>{{ $nombre_album }}</h3>	
@@ -27,7 +33,7 @@
 		        <p>{{$foto->descripcion}}</p>
 		      </div>
 		      <p><a href="/validado/fotos/actualizar-foto/{{$foto->id}}" class="btn btn-primary" role="button">Editar Foto</a></p>
-		      <form action="/validado/fotos/eliminar-foto" method="POST">
+		      <form action="/validado/fotos/eliminar-foto" method="POST" onsubmit="if(confirm('Seguro?')){return true;}else{return false;}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}" required>
 				<input type="hidden" name="id" value="{{$foto->id}}" required>
 				<input class="btn btn-danger" role="button" type="submit" value="Eliminar"/>

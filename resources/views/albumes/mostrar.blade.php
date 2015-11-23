@@ -10,7 +10,13 @@
 
 @if (Session::has('actualizado'))
 	<div class="alert alert-success">
-		<strong>Ok!</strong> El album ha actualizado.<br><br>
+		<strong>Ok!</strong> El album ha sido actualizado.<br><br>
+	</div>
+@endif
+
+@if (Session::has('eliminado'))
+	<div class="alert alert-danger">
+		<strong>Ok!</strong> Album Eliminado.<br><br>
 	</div>
 @endif
 
@@ -28,7 +34,7 @@
 		        <p>{{$album->descripcion}}</p>
 		        <p><a href="/validado/fotos?id={{$album->id}}" class="btn btn-primary" role="button">Ver fotos</a></p>
 		        <p><a href="/validado/albumes/actualizar-album/{{$album->id}}" class="btn btn-primary" role="button">Editar álbum</a></p>
-		        <form action="/validado/albumes/eliminar-album" method="POST">
+		        <form action="/validado/albumes/eliminar-album" method="POST" onsubmit="if(confirm('Seguro?')){return true;}else{return false;}">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}" required>
 					<input type="hidden" name="id" value="{{$album->id}}" required>
 					<input class="btn btn-danger" role="button" type="submit" value="Eliminar"/>
